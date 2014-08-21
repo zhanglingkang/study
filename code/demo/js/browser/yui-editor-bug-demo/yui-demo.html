@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div[contenteditable]{
+            height: 400px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<div ></div>
+<script src="http://cdn.bootcss.com/yui/3.17.2/yui/yui-debug.js"></script>
+<script>
+    YUI().use('base', 'editor-inline', 'panel', 'node-event-simulate', function (Y) {
+        var PLACEHOLDER_TEXT = '<p></p>';
+        var setURLPanel, setURLForm;
+        var Editor = Y.Base.create('KY.Editor', //类名称
+                Y.InlineEditor, //扩展自Y.InlineEditor
+                [
+                ], {
+                    /**
+                     * 自定义编辑器
+                     * @class KY.Editor
+                     */
+                    initializer: function () {
+                        var container = this.get('container');
+                        this.render(container.one('.editor-inner'));
+                    }
+
+                }, {
+                    ATTRS: {
+                        container: {
+                            valueFn: function (val) {
+                                return Y.Node.one(val);
+                            }
+                        }
+                    }
+                });
+        editor = new Editor({
+            container: Y.one("div"),
+            buttons: ['bold', 'image']
+        });
+    });
+</script>
+</body>
+</html>
