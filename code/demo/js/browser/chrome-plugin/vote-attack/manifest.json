@@ -1,0 +1,20 @@
+{
+    "name": "vote teacher plugin",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "icons": {
+        "48": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://www.wlcbnews.com/*"],//http://www.wlcbnews.com/channel/wlcbxxw/col20330f.html#userconsent#
+            "js": ["index.js"]
+        }
+    ],
+    "permissions": ["http://*.google.com/", "https://*.google.com/"],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Do action",
+        "default_popup": "index.html"
+    }
+}  

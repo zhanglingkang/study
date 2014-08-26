@@ -1,0 +1,1 @@
+!function(){alert("hahahha"),window.m1={name:"m1"}}(),function(){alert("Hello World"),alert("nihaoya!"),window.m2={name:"m2"}}(),function(){window.m3={name:"m3"}}(),function(){window.app={},window.app.m1={name:"app.m1",version:"1.0.1"}}(),function(){var n="test";console.log(n)}(),function(){var n="中文";console.log("test2 app m1 name:"+app.m1.name),console.log(n)}();

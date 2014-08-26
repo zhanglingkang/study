@@ -1,0 +1,16 @@
+CACHE MANIFEST
+#1.26000
+CACHE:
+http://test.kuaiyong.com/appcache/style.css
+http://test.kuaiyong.com/appcache/style2.css
+http://test.kuaiyong.com/appcache/style3.css
+http://js.wanmeiyueyu.com/public/bootstrap/3.2.0/css/bootstrap.min.css
+http://js.wanmeiyueyu.com/public/bootstrap/3.2.0/js/bootstrap.min.js
+http://js.wanmeiyueyu.com/public/seajs/dist/sea-debug.js
+http://js.wanmeiyueyu.com/bms-kyipad/js/lib/angular-debug.js
+http://js.wanmeiyueyu.com/public/jquery/jquery-1.11.1.min.js
+http://js.wanmeiyueyu.com/ky-home/spreads/alert.js
+NETWORK:
+*
+
+FALLBACK:

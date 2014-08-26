@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>html5 drag &amp; drop 拖拽与拖放测试</title>
+<script src="demo.js"></script>
+<style>
+body{font-size:84%;}
+.dustbin{width:100px; height:260px; line-height:1.4; background-color:gray; font-size:36px; font-family:"微软雅黑", "Yahei Mono"; text-align:center; text-shadow:-1px -1px #bbb; float:left;}
+.dragbox{width:500px; padding-left:20px; float:left;}
+.draglist{padding:10px; margin-bottom:5px; border:2px dashed #ccc; background-color:#eee; cursor:move;}
+.draglist:hover{border-color:#cad5eb; background-color:#f0f3f9;}
+.dragremind{padding-top:2em; clear:both;}
+</style>
+</head>
+
+<body>
+<form action="editor.cgi" method="post">
+ <p><label>Name: <input required name=fn></label></p>
+ <p><label>Essay: <textarea required name=essay></textarea></label></p>
+ <p><input type=submit name=submit value="Submit essay"></p>
+ <p><input type=submit formnovalidate name=save value="Save essay"></p>
+ <p><input type=submit formnovalidate name=cancel value="Cancel"></p>
+</form>
+
+</body>
+</html>
