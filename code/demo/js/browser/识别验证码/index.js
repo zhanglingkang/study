@@ -1,5 +1,5 @@
-function getIdentifyingCode() {
-    var image = document.querySelector("img");       //如果要用在greasemonkey脚本里,可以把下面的代码放在image的onload事件里
+function getIdentifyingCode(selector) {
+    var image = document.querySelector(selector);       //如果要用在greasemonkey脚本里,可以把下面的代码放在image的onload事件里
     var canvas = document.createElement('canvas');
     var ctx = canvas.getContext("2d");
     var numbers = [                           //模板,依次是0-9十个数字对应的明暗值字符串

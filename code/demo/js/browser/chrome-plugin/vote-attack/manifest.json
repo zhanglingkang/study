@@ -8,7 +8,7 @@
     "content_scripts": [
         {
             "matches": ["http://www.wlcbnews.com/*"],//http://www.wlcbnews.com/channel/wlcbxxw/col20330f.html#userconsent#
-            "js": ["index.js"]
+            "js": ["produce-id-card.js", "index.js"]
         }
     ],
     "permissions": ["http://*.google.com/", "https://*.google.com/"],
