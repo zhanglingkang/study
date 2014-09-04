@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        @-webkit-keyframes rotateImage /* Safari and Chrome */
+        {
+            0% {
+                -webkit-transform: rotateX(0deg);
+            }
+            20% {
+                -webkit-transform: rotateX(60deg);
+            }
+            40% {
+                -webkit-transform: rotateX(120deg);
+            }
+            60% {
+                -webkit-transform: rotateX(180deg);
+            }
+            80% {
+                -webkit-transform: rotateX(240deg);
+            }
+            100% {
+                -webkit-transform: rotateX(360deg);
+            }
+        }
+
+        @keyframes rotateImage {
+            0% {
+                -webkit-transform: rotateX(0deg);
+            }
+            20% {
+                -webkit-transform: rotateX(60deg);
+            }
+            40% {
+                -webkit-transform: rotateX(120deg);
+            }
+            60% {
+                -webkit-transform: rotateX(180deg);
+            }
+            80% {
+                -webkit-transform: rotateX(240deg);
+            }
+            100% {
+                -webkit-transform: rotateX(360deg);
+            }
+
+        }
+
+        div {
+            background-image: url(http://www.html5tricks.com/demo/jquery-css3-image-rotate/images/dumptruck_teaser.jpeg);
+            width: 200px;
+            height: 150px;
+
+        }
+
+        div.animating {
+            /*-webkit-transform: rotateX(360deg) rotateY(360deg);*/
+            -webkit-animation: rotateImage 2s;
+        }
+    </style>
+</head>
+<body>
+<div>
+</div>
+<script>
+    var image = new Image();
+    image.src = "http://www.html5tricks.com/demo/jquery-css3-image-rotate/images/dumptruck_teaser.jpeg";
+
+    image.onload = function () {
+        image.onload = null;
+        image.src = "http://www.html5tricks.com/demo/jquery-css3-image-rotate/images/rrwooo_rrwooo_teaser.jpeg";
+    }
+    var div = document.querySelector("div");
+    div.addEventListener("click", function () {
+        if (div.classList.contains("animating")) {
+            div.classList.remove("animating");
+        } else {
+            div.classList.add("animating");
+        }
+
+    });
+</script>
+</body>
+</html>

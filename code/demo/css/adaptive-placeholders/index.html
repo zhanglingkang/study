@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        input {
+            border: 1px solid #d7dcd4;
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            outline: none;
+            padding-left: 10px;
+
+        }
+
+        input:focus {
+            border-color: #3caacc;
+        }
+
+        input:focus + label {
+            -webkit-transform: translate(-200px, -20px) scale(0.9);
+        }
+
+        input + label {
+            -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+            display: inline-block;
+            pointer-events: none;
+            transition: 0.3s linear;
+            z-index: 1;
+            position: relative;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<div>
+
+    <input type="text"/>
+    <label>请输入名称</label>
+</div>
+
+</body>
+</html>

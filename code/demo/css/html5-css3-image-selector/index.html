@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        li {
+            position: relative;
+            list-style: none;
+            width: 157px;
+            height: 157px;
+
+        }
+
+        .img-list img {
+            -moz-transition: transform 2s; /* Firefox 4 */
+            -moz-transition: -moz-transform 2s;
+            -webkit-transition: -webkit-transform 2s; /* Safari 和 Chrome */
+            -o-transition: transform 2s; /* Opera */
+            transition: -webkit-transform 0.4s linear;
+        }
+
+        .img-list img.animationing {
+            -webkit-transform: scale(0.5, 0.5);
+            transform: scale(0.5, 0.5);
+        }
+
+        .img-list li:before {
+            position: absolute;
+            content: "\2714";
+            left: 50%;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            margin-left: -20px;
+            border-radius: 20px;
+            margin-top: -20px;
+            background-color: #00c09e;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            -webkit-transition:opacity 0.3s linear;
+            transition: opacity 0.3s linear;
+            z-index: 1;
+        }
+
+        .img-list li.selected:before {
+            opacity: 1;
+        }
+
+        li.selected img {
+            box-shadow: 0 0 0 4px #00c09e;
+        }
+    </style>
+</head>
+<body>
+<ul class="img-list">
+    <li>
+        <img src="http://www.html5tricks.com/demo/html5-css3-image-selector/8018953043_c6ef9e3b29_q.jpg"/>
+    </li>
+</ul>
+<script>
+    var img = document.querySelector("img");
+    var listener = function (event) {
+        debugger;
+    };
+    img.addEventListener("click", function () {
+        img.classList.add("animationing");
+        if (img.parentNode.classList.contains("selected")) {
+            img.parentNode.classList.remove("selected");
+        } else {
+            img.parentNode.classList.add("selected");
+        }
+
+
+    });
+    img.addEventListener("animationstart", listener, false);
+    img.addEventListener("animationend", listener, false);
+    img.addEventListener("animationiteration", listener, false);
+    img.addEventListener("webkitTransitionEnd", function () {
+        if (img.classList.contains("animationing")) {
+            img.classList.remove("animationing");
+        }
+    });
+    // transitionend msTransitionEnd oTransitionEnd
+</script>
+</body>
+</html>
