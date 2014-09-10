@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        pre {
+            border: 1px solid #008000;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<p>
+    经测试，offsetParent属性获取到包含块节点(祖先节点中第一个position为relative、absolute、fixed的节点)。
+</p>
+<pre>
+    &lt;div id="first-demo-parent" style="position: relative;"&gt;
+        &lt;div id="first-demo"&gt;xxxxxxxxxxxxxxxxxxxx&lt;/div&gt;
+    &lt;/div&gt;
+    $("#first-demo").offsetParent为$("#first-demo-parent")
+</pre>
+
+<pre>
+    &lt;div id="second-demo-parent" style="position: fixed;"&gt;
+        &lt;div id="second-demo"&gt;xxxxxxxxxxxxxxxxxxxx&lt;/div&gt;
+    &lt;/div&gt;
+    $("#second-demo").offsetParent为$("#second-demo-parent")
+</pre>
+
+<pre>
+    &lt;div id="third-demo-parent" style="position: absolute;"&gt;
+        &lt;div id="third-demo"&gt;xxxxxxxxxxxxxxxxxxxx&lt;/div&gt;
+    &lt;/div&gt;
+    $("#third-demo").offsetParent为$("#third-demo-parent")
+</pre>
+<pre>
+    &lt;div id="four-demo-parent"&gt;
+        &lt;div id="four-demo"&gt;xxxxxxxxxxxxxxxxxxxx&lt;/div&gt;
+    &lt;/div&gt;
+    $("#four-demo").offsetParent为$("body")
+</pre>
+</body>
+</html>
