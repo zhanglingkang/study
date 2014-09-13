@@ -7,7 +7,11 @@
      * @return {Object} result result.left、result.top
      */
     function getNodeDocumentDistance(node) {
-        return window.pageYOffset + node.getBoundingClientRect().top;
+        var nodeRec = node.getBoundingClientRect();
+        return {
+            top: window.pageYOffset + nodeRec.top,
+            left: window.pageXOffset + nodeRec.left
+        }
     }
 
     /**
@@ -25,11 +29,20 @@
         }
     }
 
-    document.addEventListenr("click", function (event) {
-        if (event.target.getAttribute("data-tooltip")) {
+    document.addEventListener("click", function (event) {
+        if (event.target.getAttribute("data-tooltip") !== null) {
+            var pos = getNodeOffsetParentDistance(event.target);
+            var nodeRec = event.target.getBoundingClientRect();
+            pos.left += nodeRec.width;
+            pos.top += nodeRec.height / 2;
             var willAddNode = document.createElement("div");
             willAddNode.style.position = "absolute";
-            event.target.parentNode.appendChild(willAddNode)
+            willAddNode.className = "tooltip";
+            willAddNode.style.left = pos.left + "px";
+            willAddNode.style.top = pos.top + "px";
+            willAddNode.innerHTML = "xxxxxxxxxxx";
+            event.target.parentNode.appendChild(willAddNode);
         }
     });
-}())
+}
+());
