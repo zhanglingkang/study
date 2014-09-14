@@ -31,6 +31,39 @@
             border-bottom-width: 0;
             border-top-color: blueviolet;
         }
+
+        .popover {
+            position: relative;
+            height: 200px;
+        }
+
+        .popover .arrow:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+        }
+
+        .popover .arrow, .popover .arrow:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .popover .arrow:after {
+            border-width: 10px;
+            border-color: transparent;
+            border-style: solid;
+
+        }
+
+        .popover .left-arrow:after {
+            border-left-width: 0;
+            border-right-color: white;
+            margin-left: 1px;
+            margin-top: -10px;
+        }
+
     </style>
 </head>
 <body>
@@ -46,6 +79,12 @@
 </div>
 <div class="arrow top-arrow">
 
+</div>
+
+<div class="popover">
+    <div class="arrow left-arrow">
+
+    </div>
 </div>
 
 </body>

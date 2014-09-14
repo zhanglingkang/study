@@ -42,6 +42,8 @@
             willAddNode.style.top = pos.top + "px";
             willAddNode.innerHTML = "xxxxxxxxxxx";
             event.target.parentNode.appendChild(willAddNode);
+            willAddNode.style.top = pos.top - willAddNode.offsetHeight / 2 + "px";
+
         }
     });
 }
