@@ -8,6 +8,11 @@
             height: 400px;
             border: 1px solid #008000;
         }
+
+        textarea {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 
@@ -15,13 +20,14 @@
 <div class="editor" contenteditable="">
     <p>&#8203;</p>
 </div>
-<p>
+<textarea>
     关于编辑器的一些总结:
     1.document.execCommand执行的命令不区分大小写。
     2.当编辑的内容在p标签内时，敲击enter时，firefox与chrome均会自动生成p标签，这样不论哪个浏览器生成的内容一致，所以编辑器内内置了一个包含零宽空格的p标签。
     3.通过innerText属性获取编辑器的文本内容，虽然打印出来看不到什么异常，但是调用charCodeAt获取连续的空格时，发现code以32、160连续变化。
-      比如“1      3”获取到如下文本。charCodeAt(1)为32，charCodeAt(2)为160，charCodeAt(3)为32.......
-</p>
+    比如“1 3”获取到如下文本。charCodeAt(1)为32，charCodeAt(2)为160，charCodeAt(3)为32.......
+    4.editor获得焦点时，document.execCommand才能有效执行。
+</textarea>
 <script>
     (function () {
         var editor = document.querySelector(".editor");

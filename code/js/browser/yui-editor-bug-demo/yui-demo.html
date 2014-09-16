@@ -4,14 +4,36 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        div[contenteditable]{
+        div[contenteditable] {
             height: 400px;
             border: 1px solid gray;
+        }
+
+        textarea {
+            width: 100%;
+            height: 400px;
         }
     </style>
 </head>
 <body>
-<div ></div>
+<div></div>
+<textarea>
+    bug描述
+    <div class="editor-inner" contenteditable="true" dir="ltr" lang="en-US" id="yui_3_17_2_13_1408596421114_35">
+        1111111111111111111111112
+        <div id="yui_3_17_2_14_1408596421114_7"><br></div>
+
+    </div>
+    当编辑器内内容如上面所示，删除2时，会发现光标跑到编辑器开头的情况
+    ]]>
+    bug出现的具体步骤:
+    1.前置条件：编辑器内容为空白
+    2.输入一行内容
+    3.敲击enter键
+    4.敲击<-键退到第一行
+    5.删除一个字符，光标跑到编辑器开头
+</textarea>
+
 <script src="http://cdn.bootcss.com/yui/3.17.2/yui/yui-debug.js"></script>
 <script>
     YUI().use('base', 'editor-inline', 'panel', 'node-event-simulate', function (Y) {
