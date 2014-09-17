@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+<textarea>
+    在chrome下，文件选择框选择同样的文件，只会触发一次change事件；
+    在firefox下，文件选择框选择同样的文件，会触发多次change事件；
+</textarea>
+
+<div>
+    触发次数:<span id="count">0</span>
+</div>
+<input type="file">
+<script>
+    document.querySelector("input").addEventListener("change", function () {
+        var count = parseInt(document.querySelector("#count").innerHTML);
+        document.querySelector("#count").innerHTML = count + 1;
+    });
+</script>
+</body>
+</html>
