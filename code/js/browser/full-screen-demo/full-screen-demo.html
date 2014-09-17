@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        textarea {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<textarea>
+    1.chrome,firefox下均支持全屏，但是请求全屏的代码必须运行在由用户引发的事件处理代码段中，比如click事件，
+    在window.onload事件下运行请求全屏的代码是不可以的，在firefox下回给予如下提示
+    全屏请求被拒绝，因为 Element.mozRequestFullScreen() 不是在一个短期运行的由用户引发的事件处理代码段中运行的。
+    2.全屏变化事件：fullscreenchange、webkitfullscreenchange（chrome下）。
+    3.全屏伪类-webkit-full-screen，fullscreen，示例:
+    <style>
+        div:-webkit-full-screen {
+            background: red;
+            width: 1000px;
+            height: 100%;
+        }
+    </style>
+</textarea>
+<a id="fullscreenbtn">
+    <img id="fullscreenbox" style="display: block; margin-left: auto; margin-right: auto;"
+         src="http://pic002.cnblogs.com/images/2012/277258/2012041400022949.gif" alt=""/>
+</a>
+<script src="full-screen.js"></script>
+<script>
+    document.querySelector('#fullscreenbtn').onclick = function () {
+        if (window.fullScreenAPI.supportsFullScreen) {
+            window.fullScreenAPI.requestFullScreen(document.getElementById('fullscreenbox'));
+        } else {
+            alert('就你这浏览器，基本就告别全屏功能了');
+        }
+    };
+</script>
+</body>
+</html>
