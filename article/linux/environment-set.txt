@@ -1,0 +1,9 @@
+linux 环境变量设置：
+文件路径：~/.profile
+文件内容片段：
+PATH="$PATH:/home/zhanglingkang/soft/WebStorm-135.547/bin"
+PATH=$PATH:/usr/local/lib/node_modules/sumeru/sumeru/npm-tools
+PATH=$PATH:/home/zhanglingkang/soft/mongodb-linux-i686-2.4.10/bin
+PATH=$PATH:/home/zhanglingkang/.npm/karma/0.12.19/package/bin
+PATH=$PATH:/home/zhanglingkang/soft/node-v0.10.26/node-webkit/node-webkit-v0.10.5-linux-x64
+export NODE_PATH=/usr/local/lib/node_modules/
