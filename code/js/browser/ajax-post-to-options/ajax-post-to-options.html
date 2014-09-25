@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<xmp>
+    当ajax请求的url跨域时，有几种情况会出现先发送OPTIONS请求，如果OPTIONS响应允许发送后续请求，才发送后续请求。目前已知有以下两种情况
+    1.执行 xhr.setRequestHeader("Content-Type", null|undefind|'application/any');
+    2.执行xhr.upload.onprogress = function () {
+
+    },且同时执行xhr.send(formData);
+    如果没有以上两点设置，不会先发送OPTIONS请求。
+</xmp>
+<button id="demo1">demo1</button>
+<button id="demo2">demo2</button>
+<script>
+
+    document.querySelector("#demo1").onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://www.baidu.com");
+        xhr.setRequestHeader("Content-Type", null);
+        xhr.send("");
+    };
+    document.querySelector("#demo2").onclick = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://www.baidu.com");
+        var formData = new FormData();
+        formData.append("name", 3);
+        xhr.upload.onprogress = function () {
+        }
+        xhr.send(formData);
+    };
+
+</script>
+</body>
+</html>

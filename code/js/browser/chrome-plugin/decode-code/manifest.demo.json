@@ -1,0 +1,44 @@
+{
+    "background": {
+        "page": "ticket_bg.html"
+    },
+    "browser_action": {
+        "default_icon": "images/19.png",
+        "default_popup": "ticket_pop.html"
+    },
+    "content_scripts": [ {
+        "all_frames": true,
+        "css": [ "css/ticket_otn_content.css" ],
+        "js": [ "lib/jquery.js", "lib/jquery_pack.js", "lib/md5.js", "js/ticket_content_otn.min.js" ],
+        "matches": [ "*://*.12306.cn/otn/*" ],
+        "run_at": "document_end"
+    }, {
+        "all_frames": false,
+        "js": [ "js/ticket_content_helper.js" ],
+        "matches": [ "http://12306.360.cn/*" ],
+        "run_at": "document_start"
+    }, {
+        "all_frames": false,
+        "js": [ "lib/jquery.js", "js/ticket_content_cross.min.js" ],
+        "matches": [ "http://*.huochepiao.360.cn/*" ],
+        "run_at": "document_start"
+    } ],
+    "default_locale": "zh_CN",
+    "description": "__MSG_description__",
+    "icons": {
+        "128": "images/128.png",
+        "16": "images/19.png",
+        "48": "images/48.png"
+    },
+    "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCpANivE+0xzITS4VXIQFwynZn29tuKnKOz3fc0oFSCbrqmVxgH9wGVoEWMCqju9J085D5GGxzOk5tvWG0eFLq11Feywn+YunXqzcfP1BGtrPKeCD2F8A3pOWQOw1UQF7GRoJhRamHdsx2zqslQ6ftjx9K//Cq4akIZHAErmeRjoQIDAQAB",
+    "manifest_version": 2,
+    "minimum_chrome_version": "18.0.0.0",
+    "name": "__MSG_name__",
+    "permissions": [ "notifications", "tabs", "http://site.browser.360.cn/jump/skip.js", "http://dd.browser.360.cn/static/*", "management", "*://*.12306.cn/*", "*://*/otn/*", "http://*.chrome.360.cn/*", "http://12306.360.cn/*", "http://*.huochepiao.360.cn/*", "cookies", "storage", "webRequest", "webRequestBlocking" ],
+    "plugins": [ {
+        "path": "plugin/helper.dll"
+    } ],
+    "update_url": "http://upext.chrome.360.cn/intf.php?method=ExtUpdate.query",
+    "version": "5.2.0.29",
+    "web_accessible_resources": [ "images/12306.png" ]
+}

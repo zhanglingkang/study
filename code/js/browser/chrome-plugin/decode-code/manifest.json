@@ -1,0 +1,40 @@
+{
+    "name": "decode-code",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "icons": {
+        "48": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "js": ["bower_components/jquery/dist/jquery.js", "index.js"],
+            "matches": [
+                "*://*.12306.cn/otn/*",
+                "http://zc.qq.com/chs/index.html",
+                "http://passport.csdn.net/account/register"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "notifications",
+        "tabs",
+        "cookies",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "*://*.12306.cn/*",
+        "*://*.360.cn/*",
+        "*://*/*"
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "Do action",
+        "default_popup": "index.html"
+    },
+    "plugins": [
+        {
+            "path": "plugin/helper.dll"
+        }
+    ]
+}  
