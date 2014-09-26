@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="import" href="card.html">
+</head>
+<body>
+<xmp>
+    1.link的rel属性取值import,当前firefox下还没有生效,chrome下木有问题。
+    2.判断是否支持import的方法可以通过link结点是否包含import属性
+    3.通过import引入文件后，可以通过import属性获取文件内容 import值为文档类型的结点
+    4.import引入的文件内的图片没有请求。请求从fiddler中抓取。
+</xmp>
+<script>
+    var link = document.createElement("link");
+    if ("import" in link) {
+        alert("当前浏览器支持import")
+    } else {
+        alert("当前浏览器不支持import");
+    }
+    if (ceshi === 33) {
+        alert("import文件内的代码与当前文件内的js代码共享一个全局环境")
+    } else {
+        alert("import文件内的代码与当前文件内的js代码有自己独立的全局环境")
+    }
+</script>
+</body>
+</html>

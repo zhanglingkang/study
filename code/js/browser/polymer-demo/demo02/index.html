@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../bower_components/platform/platform.js"></script>
+    <link rel="import" href="elements/span-value.html">
+</head>
+<body>
+<xmp>
+    元素有两种属性，英文名一个是property,一个是attribute。
+    attribute通过setAttribute和getAttribute设置和访问。attribute即元素的属性节点。
+    如
+    <div id="div"></div>
+    id即为attribute。document.querySelector("div").id即为property。
+    目前经测试：
+    1.发现property "id" 与 attribute "id"是绑定的。更新其中一个另一个也会更新。或者其
+    内部就是一个属性。
+    2.在input元素中，更新attribute "value"会更新property "value",但是更新property "value"不会更新
+    attribute "value"
+    3.在polymer中。如果属性reflect设置为true。即可做到更新property时更新对应的attribute，否则不会。
+</xmp>
+<span-value value="zlk"></span-value>
+</body>
+</html>

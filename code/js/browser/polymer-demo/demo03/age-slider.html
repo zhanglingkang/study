@@ -1,0 +1,29 @@
+<link rel="import"
+      href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="age-slider">
+    <template>
+        <strong style="color:{{color}};">{{name}}</strong> 说ta今年<strong>{{age}}</strong>岁了。
+        年龄:<input type="range" value="{{age}}">
+        姓名:<input type="text" value="{{name}}">
+        <button on-click="{{ tip }}">点击</button>
+    </template>
+    <script>
+        Polymer({
+            age: 25,
+            name: "zq",
+            nameChanged: function (oldValue, newValue) {
+                this.fire("nameChanged", {
+                    oldValue: oldValue,
+                    newValue: newValue
+                });
+            },
+            tip: function () {
+                alert("click");
+            },
+            publish: {
+                color: ""
+            }
+        });
+    </script>
+</polymer-element>

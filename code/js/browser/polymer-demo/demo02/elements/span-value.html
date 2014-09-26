@@ -1,0 +1,16 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<polymer-element name="span-value">
+    <template>
+        <span>{{value}}</span>
+    </template>
+    <script>
+        Polymer({
+            publish: {
+                value: {
+                    value: "33333",
+                    reflect: true
+                }
+            }
+        });
+    </script>
+</polymer-element>
