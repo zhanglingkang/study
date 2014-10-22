@@ -3,17 +3,38 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        hello-span {
+            color: red;
+        }
+    </style>
 </head>
 <body>
+<xmp>
+    1.在自定义元素的生命周期中，会触发一序列的回调事件，元素创建时createdCallback,元素附加到dom上时attachedCallback，
+    元素从dom中移除时detachedCallback，元素属性改变时attributeChangedCallback
+    2.自定义事件的类型 HTMLEvents、MouseEvents、UIEvents。分别定义自己的初始化方法 initEvent、initMouseEvent、initUIEvent
+    自定义事件使用的步骤：
+    (1) var event=document.createEvent("HTMLEvents");
+    (2) event.initEvent("eventType", true, true);
+    (4) eventTarget.addEventListener("eventType",function(){})；
+    (3) eventTarget(html元素).dispatchEvent(event);
+    3.自定义元素就可以完全实现自定义组件了，shadow主要是为了实现封装。
+
+</xmp>
 <hello-span></hello-span>
 <script>
+    var createEvent = document.createEvent("HTMLEvents");
+    createEvent.initEvent("create", true, true);
     var helloSpan = Object.create(HTMLSpanElement.prototype);
     helloSpan.createdCallback = function () {
         this.innerHTML = "hello";
         console.log("createdCallback");
+        this.dispatchEvent(createEvent);
     };
     helloSpan.attachedCallback = function () {
         console.log("attachedCallback");
+        this.dispatchEvent(createEvent);
     };
     helloSpan.detachedCallback = function () {
         console.log("detachedCallback");
@@ -24,9 +45,11 @@
     document.registerElement('hello-span', {
         prototype: helloSpan
     });
-//    var helloSpanInstance = document.createElement('hello-span');
-    //
-    //    document.querySelector('body').appendChild(helloSpanInstance);
+    var helloSpanInstance = document.createElement('hello-span');
+    helloSpanInstance.addEventListener("create", function () {
+        console.log("create");
+    });
+    document.querySelector('body').appendChild(helloSpanInstance);
 </script>
 </body>
 </html>

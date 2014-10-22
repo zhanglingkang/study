@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        .tooltip {
-            box-shadow: 0 0 1px 1px lightslategray;
-        }
-
         body {
             margin: 0;
         }
-
     </style>
+    <link rel="stylesheet" href="tooltip.css"/>
 </head>
 <body>
 <div style="position: relative;height: 400px;">
     <div style="position: absolute;top:200px;">
         <button data-tooltip>弹框</button>
+    </div>
+</div>
+<div class="tooltip top" style="left: 42.671875px; top: 1.5px;">
+    <div class="arrow"></div>
+    <h3 class="tooltip-title">标题</h3>
+
+    <div class="tooltip-content">
+        内容1111111111111111111
     </div>
 </div>
 <script src="tooltip.js"></script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = function () {
+        console.log("xhr.status=" + xhr.status);
+        if (xhr.readyState === 2) {
+            console.log("readyState=2时，" + xhr.status);
+            console.log(xhr.getAllResponseHeaders())
+        }
+    };
+    xhr.open("GET", "www.baidu.com");
+    xhr.send();
+</script>
+</body>
+</html>
