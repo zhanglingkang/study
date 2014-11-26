@@ -1,6 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script>
+
+        //        var _observe = MutationObserver.prototype.observe
+        //        MutationObserver.prototype.observe = function () {
+        //            _observe.apply(this, arguments);
+        //        }
+        //        var _MutationObserver = MutationObserver;
+        //        MutationObserver = function (fn) {
+        //            return new _MutationObserver(function (event) {
+        //                fn(event);
+        //            });
+        //        };
+        (function () {
+            var _ObjectObserve = Object.observe;
+            Object.observe = function (a, b, c) {
+                console.log(arguments);
+                var fn = function (changes) {
+                    console.log(changes);
+                    b(changes);
+                };
+                b._callback = b._callback || fn;
+                _ObjectObserve(a, b._callback, c);
+            };
+        }());
+        var _deliverChangeRecords = Object.deliverChangeRecords;
+        Object.deliverChangeRecords = function (callback) {
+            _deliverChangeRecords(callback._callback || callback);
+        };
+        (function () {
+            var _ArrayObserve = Array.observe;
+            Array.observe = function (a, b, c) {
+                var fn = function (changes) {
+                    b(changes);
+                };
+                b._callback = b._callback || fn;
+                _ArrayObserve(a, b._callback, c);
+            };
+
+        }());
+    </script>
     <script src="../bower_components/platform/platform.js"></script>
     <link rel="import" href="age-slider.html">
 </head>
@@ -8,7 +48,7 @@
 <age-slider color="red"></age-slider>
 <script>
     document.querySelector("age-slider").addEventListener("nameChanged", function (event) {
-        debugger;
+        console.log("nameChanged");
     });
 </script>
 </body>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            height: 400px;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var $ = function (selector) {
+        return document.querySelector(selector);
+    }
+    $("div").addEventListener("paste", function (event) {
+        console.log(event);
+        debugger;
+    });
+</script>
+</body>
+</html>

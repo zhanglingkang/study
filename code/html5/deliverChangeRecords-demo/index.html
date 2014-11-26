@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<xmp>
+    使用Object.observe监听一个对象的属性时，属性改变事件是一个异步回调，
+    也就是说等到当前js代码执行完毕。如果想变成同步回调，在属性改变后，手动调用
+    Object.deliverChangeRecords(callback);
+</xmp>
+<script>
+    var obj = {
+        name: 3
+    };
+    var callback = function (changes) {
+        debugger;
+    };
+    Object.observe(obj, callback);
+</script>
+</body>
+</html>
