@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var a = 4;
+    var promise = new Promise(function (resolve, reject) {
+        if (a == 2) {
+            resolve("yes");
+        } else {
+            reject("no");
+        }
+
+    });
+    promise.then(function(){
+        console.log("promise1");
+        throw 3;
+    },function(){
+        throw 3333;
+        console.log("promise1error");
+        return 3;
+    }).then(function(data){
+        console.log("promise2"+data);
+    },function(data){
+        console.log("promise2error"+data);
+    });
+
+</script>
+</body>
+</html>
