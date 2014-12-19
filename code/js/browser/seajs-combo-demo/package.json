@@ -1,0 +1,28 @@
+{
+  "name": "combo-use-demo",
+  "version": "0.0.2",
+  "description": "combo插件使用demo",
+  "keywords": [],
+  "homepage": "",
+  "author": "zlk",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+      "seajs": "2.3.0",
+      "seajs-combo": "1.0.1",
+      "moment": "2.8.4",
+      "expect.js": "0.3.1"
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  }
+}
