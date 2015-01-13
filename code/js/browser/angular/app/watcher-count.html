@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var watcherCount = 0;
+    [].forEach.call($$(".ng-scope"), function (value, key) {
+        var scope = angular.element(value).data().$scope;
+        if (scope && scope.$$watchers) {
+            watcherCount += scope.$$watchers.length;
+        }
+    });
+</script>
+</body>
+</html>
