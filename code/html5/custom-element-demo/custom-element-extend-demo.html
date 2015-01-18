@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        hello-span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<!--<hello-span></hello-span>-->
+<span is="hello-span">xxxxxxx</span>
+<script>
+    var createEvent = document.createEvent("HTMLEvents");
+    createEvent.initEvent("create", true, true);
+    var helloSpan = {}//Object.create({});
+    helloSpan.createdCallback = function () {
+        //this.innerHTML = "hello";
+        console.log("createdCallback");
+        //this.dispatchEvent(createEvent);
+    };
+    helloSpan.attachedCallback = function () {
+        console.log("attachedCallback");
+        //this.dispatchEvent(createEvent);
+    };
+    helloSpan.detachedCallback = function () {
+        console.log("detachedCallback");
+    };
+    helloSpan.attributeChangedCallback = function () {
+        console.log("attributeChangedCallback");
+    };
+    document.registerElement('hello-span', {
+        prototype: helloSpan,
+        extends: "span"
+    });
+
+</script>
+</body>
+</html>

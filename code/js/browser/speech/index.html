@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="play">播放</button>
+<script>
+    //alert(speechSynthesis.getVoices());
+    //    document.querySelector("#play").onclick = function () {
+    //        var msg = new SpeechSynthesisUtterance('Hello World');
+    //        speechSynthesis.speak(msg);
+    //    };
+    function getVoices(fn) {
+        var voices = speechSynthesis.getVoices();
+        if (voices.length === 0) {
+            var intervalId = setInterval(function () {
+                voices = speechSynthesis.getVoices();
+                console.log("---");
+                if (voices.length !== 0) {
+                    clearInterval(intervalId);
+                    fn(voices);
+                }
+            }, 0);
+        } else {
+            fn(voices);
+        }
+    }
+    var msg = new SpeechSynthesisUtterance('Hello World');
+    for (var key in msg) {
+        if (/^on/.test(key)) {
+            msg[key] = function (event) {
+                console.log(event.type, "---pending", speechSynthesis.pending, "speaking---", speechSynthesis.speaking);
+                if (event.type === "start") {
+                    console.timeEnd("start");
+                }
+            }
+        }
+    }
+    getVoices(function (voices) {
+        msg.voice = voices[10];
+        console.log(msg.voice);
+        speechSynthesis.speak(msg);
+    })
+
+
+    //    speechSynthesis.cancel();
+    //    speechSynthesis.speak(msg);
+
+</script>
+</body>
+</html>

@@ -8,8 +8,16 @@
 <script>
     if (Notification.permission === "granted") {
         var notification = new Notification('收到新邮件', {
-            body: '您总共有3封未读邮件。'
+            body: '<a href="http://www.baidu.com">您总共有3封未读邮件</a>',
+            icon: 'ppz.jpg',
+            tag: "tip",
+            dir: "rtl"
         });
+        notification.onclick = function () {
+//            alert("点击了！")
+            console.log("333");
+
+        }
     } else if (Notification.permission !== 'denied') {
         Notification.requestPermission(function (permission) {
             if (!('permission' in Notification)) {

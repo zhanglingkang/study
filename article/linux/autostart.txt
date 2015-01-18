@@ -1,0 +1,4 @@
+ubuntu 12.04中
+如果需要在开机后自动启动桌面软件（note:这里是桌面软件），可以使用如下方法
+将 /usr/share/applications 中的以.desktop为后缀的文件移动到 ~/.config/autostart/中即可
+如果取消某个开机自启项，从~/.config/autostart中删除即可。
