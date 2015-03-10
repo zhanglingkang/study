@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            reject("reject")
+        }, 1000)
+    })
+    promise.then(function (data) {
+        console.log(data)
+    }, function (reason) {
+        console.log(reason)
+        throw "error"
+        return "reason two"
+    }).then(function (data) {
+        console.log(data)
+    }, function (reason) {
+        console.log(reason)
+    })
+</script>
+</body>
+</html>
