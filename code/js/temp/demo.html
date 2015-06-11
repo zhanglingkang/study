@@ -1,6 +1,22 @@
-<img-slider>
-    <img src="images/sunset.jpg" alt="a dramatic sunset">
-    <img src="images/arch.jpg" alt="a rock arch">
-    <img src="images/grooves.jpg" alt="some neat grooves">
-    <img src="images/rock.jpg" alt="an interesting rock">
-</img-slider>
+<div class="btn-group">
+    <button ng-click="add()">新增</button>
+</div>
+<table>
+    <tr>
+        <td>员工编号</td>
+        <td>姓名</td>
+        <td>职务</td>
+        <td>性别</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    <tr ng-repeat="employee in employeeList">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.job}}</td>
+        <td>{{employee.sex}}</td>
+        <td>{{employee.age}}</td>
+        <td ng-click="remove(employee)">删除</td>
+        <td ng-click="update(employee)">修改</td>
+    </tr>
+</table>
