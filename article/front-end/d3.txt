@@ -1,0 +1,15 @@
+d3坑：
+1、具有迷惑性的返回值
+比如：var a=d3.select('')
+     var b=a.datum([2,3,4])
+     var c=a.transition()
+因为a、b、c类型一样，都是d3中selection类型的值，会以为a==b==c，以为他们满足链式调用，但实际上a!=b!=c,不能进行链式调用
+2、parentNode
+   d3.select('div')与d3.select('body').select('div')即使选中了同一个元素，返回值中的parentNode也不一样。调用enter方法的时候这个parentNode还有用
+3、append方法
+     var a=d3.select('div').data([2,3,4])
+     a.enter().append('a')(这种情况下append方法用到了parentNode，坑爹！)
+     d3.select('div').append实现的效果与jquery的append类似
+4、select与selectAll方法的区别
+   d3.select与node.select方法返回值中parentNode为html，而node.selectAll返回值中parentNode为node，坑爹！！
+5、如果node有__data__属性，node.append(childNode),childNode也会有__data__属性

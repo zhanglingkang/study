@@ -1,0 +1,7 @@
+导出:
+mysqldump  -h dlfx.mysql.rds.tbsite.net -u gduser -p --routines --tables 数据库名 表名>s_amap_dm_app_view_residentregions_all.sql
+导入:
+登录MySQL,执行source命令,后面的文件名要用绝对路径.
+mysql -u$USER -p$PASSWD -h127.0.0.1 -P3306 --default-character-set=utf8
+mysql> use mysql;
+mysql> source /tmp/db.table.sql;
