@@ -1,0 +1,153 @@
+<style>
+body {
+	background-color: rgb(26,39,63);
+}
+
+.wrap {
+	perspective: 800px;
+
+}
+.home {
+	position: absolute;
+	left: 10px;
+	font-size: 36px;
+	z-index: 2;
+}
+.home a {
+
+}
+
+svg {
+	display: block;
+	margin: auto;
+}
+#timebox {
+	position: absolute;
+	font-size: 36px;
+	color: #0ff;
+	width:100%;
+	z-index: 1;
+}
+#graph {
+	position: relative;
+	overflow-x: hidden;
+	transition-duration: .5s;
+	transform-style: preserve-3d;
+	/*transform: rotateX(45deg);*/
+}
+
+g#states path{
+	stroke: #555D65;
+	stroke-width: 1px;
+	fill: rgba(31, 44, 68, .8);
+}
+
+rect.background {
+	fill: none;
+	pointer-events: all;
+}
+
+canvas {
+	position: absolute;
+	left: 0;
+	/*right: 0;*/
+	top: 0;
+	/*margin-left: auto;*/
+	/*margin-right: auto;*/
+	pointer-events: none;
+	width: 100%;
+	height: 100%;
+}
+body > footer{
+	position: absolute;
+	bottom: 0px;
+	color: #6b6b6b;
+	padding: 0 0 0 10px;
+	background-color: rgba(107, 107, 107, 0);
+}
+
+.tips {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding-right: 10px;
+	font-style: italic;
+	color: #6b6b6b;
+}
+
+.pv-count {
+	position: absolute;
+	width: 100%;
+	top: 5em;
+	text-align: center;
+	font-size: 2em;
+	z-index: 1;
+	color: rgb(0, 255, 255);
+}
+.pv-count b{
+	font-size: 80%;
+}
+
+.edge {
+	position: absolute;
+}
+
+.edge.left {
+	left: 0;
+	right: auto;
+	width: 50px;
+	height: 100%;
+	background: -webkit-linear-gradient(left, rgb(26,39,63), rgba(26,39,63, 0) 100%);
+}
+
+.edge.top {
+	top: 0;
+	width: 100%;
+	height: 50px;
+	background: -webkit-linear-gradient(top, rgb(26,39,63), rgba(26,39,63, 0) 100%);
+}
+
+.edge.right {
+	right: 0;
+	left: auto;
+	height: 100%;
+	width: 50px;
+	background: -webkit-linear-gradient(right, rgb(26,39,63), rgba(26,39,63, 0) 100%);
+}
+
+#stats {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+</style>
+
+<div class="wrap">
+	<div class="home">
+		<a href="/dshow-web/index"><i class="fa fa-home"></i></a>
+	</div>
+	<div id="timebox" class="text-center" style="">启明星实时数据  <span id="time"></span></div>
+	<div class="pv-count"><b>PV</b> <span id="showpanel" class="odometer"></span></div>
+	<div id="graph">
+		<div class="edge left"></div>
+		<div class="edge top"></div>
+		<div class="edge right"></div>
+	</div>
+</div>
+<div class="tips">
+	Press <b>H</b> to show/hide Controls
+</div>
+
+<script id="worker1">
+	self.addEventListener("message", function(e) {
+
+		self.postMessage(e.data);
+	}, false);
+</script>
+<!--<script src="//rawgit.com/mrdoob/stats.js/master/build/stats.min.js"></script>-->
+<script>
+	loadCSS('/odometer-theme-digital.css');
+	loadJS('/lib/dat.gui.min.js');
+	loadJS('/dshow/r/dashboard/livelocate.js');
+</script>

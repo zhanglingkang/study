@@ -1,0 +1,40 @@
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+    .point-count{
+        position: fixed;
+        bottom:10px;
+        left:10px;
+        z-index: 20;
+        display: none;
+    }
+    .home {
+        position: absolute;
+        left: 10px;
+        font-size: 36px;
+        z-index: 2;
+    }
+</style>
+<div class="point-count"></div>
+<div id="map"></div>
+<div class="home">
+    <a href="/dshow-web/index"><i class="fa fa-home"></i></a>
+</div>
+
+<script>
+    loadJS('/jquery.min.js')
+    loadJS('/jquery.hotkeys.js')
+    loadJS('/leaflet-0.6.4.js')
+    loadJS('/leaflet-plugin/leaflet-heat.js')
+    loadJS('/leaflet-plugin/heatmap.js')
+    loadJS('/dshow/r/dashboard/realtime-heatmap.js')
+</script>

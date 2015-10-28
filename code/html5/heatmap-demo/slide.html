@@ -1,0 +1,166 @@
+<!--<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">-->
+<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
+<!--<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
+<style>
+    body {
+        overflow: hidden;
+    }
+
+    iframe {
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+    }
+
+    .slide-item-list .item {
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .slide-item-list .active, .slide-item-list .prev, .slide-item-list .to-right-active, .slide-item-list .to-right-prev,.slide-item-list .current {
+        z-index: 0;
+    }
+
+    .slide-item-list .active {
+        transform: translate3d(0,0,0);
+        animation: active 0.6s linear;
+        -webkit-animation: active 0.6s linear;
+    }
+
+    .slide-item-list .to-right-active {
+        transform: translate3d(0,0,0);
+        animation: to-right-active 0.6s linear;
+        -webkit-animation: to-right-active 0.6s linear;
+    }
+
+    .slide-item-list .to-right-prev {
+        transform: translate3d(100%,0,0);
+        animation: to-right-prev 0.6s linear;
+        -webkit-animation: to-right-prev 0.6s linear;
+    }
+
+    .slide-item-list .prev {
+        transform: translate3d(-100%,0,0);
+        animation: prev 0.6s linear;
+        -webkit-animation: prev 0.6s linear;
+    }
+
+    @keyframes active {
+        0% {
+            transform: translate3d(100%,0,0);
+        }
+        100% {
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    @-webkit-keyframes active {
+        0% {
+            transform: translate3d(100%,0,0);
+        }
+        100% {
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    @keyframes to-right-active {
+        0% {
+            transform: translate3d(-100%,0,0);
+        }
+        100% {
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    @-webkit-keyframes to-right-active {
+        0% {
+            transform: translate3d(-100%,0,0);
+        }
+        100% {
+            transform: translate3d(0,0,0);
+        }
+    }
+
+    @keyframes prev {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(-100%,0,0);
+        }
+    }
+
+    @-webkit-keyframes prev {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(-100%,0,0);
+        }
+    }
+
+    @keyframes to-right-prev {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(100%,0,0);
+        }
+    }
+
+    @-webkit-keyframes to-right-prev {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(100%,0,0);
+        }
+    }
+
+    .carousel-control {
+        width: 20px;
+    }
+
+</style>
+<div id="myModal" class="modal fade " tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">url设置</h4>
+            </div>
+            <div class="modal-body">
+                <p>请输入每一屏的停留时间</p>
+                <input id="interval-input" type="text"/>ms
+
+                <p style="margin-top:5px; ">提示：请输入轮播的url列表，一行一条url 如：
+                    <br>http//datashow.amap.com/dshow-web/web/r/dashboard/realtime-heatmap
+                    <br>http//datashow.amap.com/dshow-web/web/r/dashboard/livelocate
+                </p>
+                <textarea id="url-list-input" placeholder="" style="width:100%;height:100px;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary save">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="slide">
+    <div class="slide-item-list">
+    </div>
+    <a class="left carousel-control" role="button" data-slide="prev">
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" role="button" data-slide="next">
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<script>
+    loadJS('/jquery.hotkeys.js')
+    loadJS('/dshow/r/dashboard/slide.js')
+</script>

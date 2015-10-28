@@ -1,0 +1,179 @@
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #time-panel {
+        background: rgba(255, 255, 255, .8);
+        /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF, endColorstr=#CCFFFFFF);*/
+        border: 1px solid #acb2bb;
+        padding: 13px;
+        padding-left: 40px;
+        margin-top: 5px;
+        overflow: hidden;
+        display: none;
+    }
+
+    .time-panel-control {
+        overflow: hidden;
+    }
+
+    .time-panel-title .time-panel-time {
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+
+    .time-panel-progress-container {
+        float: left;
+        margin-top: 5px;
+    }
+
+    .time-panel-progress-bar {
+        background-color: #337ab7;
+        height: 5px;
+        position: relative;
+        margin-bottom: 4px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+        border-radius: 10px;
+    }
+
+    .time-panel-progress-text {
+        overflow: hidden;
+        margin-top: -3px;
+        position: relative;
+        left: -5px;
+    }
+
+    .time-panel-progress {
+        background: url(/dshow-web/statics/images/time-progress.png) no-repeat 0 0;
+        height: 16px;
+        position: absolute;
+        top: -5px;
+        cursor: move;
+        width: 16px;
+        left: 0;
+    }
+
+    .time-panel-week .time-panel-progress-tick {
+        min-width: 35px;
+    }
+
+    .time-panel-progress-tick {
+        float: left;
+        background: url(/dshow-web/statics/images/tick.png) no-repeat 50% 0;
+        padding-top: 7px;
+        text-align: center;
+    }
+
+    .time-panel-btn.play{
+        background: url(/dshow-web/statics/images/time-btn-pause.png) no-repeat 0 0;
+    }
+
+    .time-panel-btn {
+        background: url(/dshow-web/statics/images/time-btn-play.png) no-repeat 0 0;
+        width: 33px;
+        height: 33px;
+        margin-left: 10px;
+        float: right;
+        cursor: pointer;
+    }
+
+    * {
+        box-sizing: content-box;
+    }
+
+    #time-panel {
+        transform: translateX(0px);
+    }
+
+    .hide-time-panel #time-panel {
+        transform: translateX(2000px);
+    }
+
+    #to-left {
+        transform: translateX(2000px);
+    }
+
+    .hide-time-panel #to-left {
+        transform: translateX(0px);
+    }
+
+    #to-left {
+        height: 64px;
+        padding: 0 20px;
+        overflow: hidden;
+    }
+
+    .operation_arrow {
+        width: 29px;
+        height: 94px;
+        background: #0075c2;
+        border: 1px solid #e5e5e5;
+        border-left: none;
+        border-radius: 0 6px 6px 0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        margin: -48px -29px 0 0;
+        cursor: pointer;
+        line-height: 88px;
+        font-size: 36px;
+        font-family: "Times";
+        text-align: center;
+        color: #fff;
+    }
+
+    .control {
+        position: fixed;
+        bottom: 32px;
+        right: 20px;
+        left: initial;
+        top: initial;
+        transition: all 1s;
+    }
+    .home {
+        position: absolute;
+        left: 10px;
+        font-size: 36px;
+        z-index: 2;
+    }
+</style>
+<div id="map"></div>
+<div class="home">
+    <a href="/dshow-web/index"><i class="fa fa-home"></i></a>
+</div>
+<div id="to-left" class="control">
+    <div class="operation_arrow ">
+        <span>‹</span>
+    </div>
+</div>
+<div id="time-panel" class="time-panel-week control">
+    <div class="operation_arrow">
+        <span>›</span>
+    </div>
+    <div class="time-panel-control">
+        <div class="time-panel-progress-container">
+            <div class="time-panel-progress-bar"><span class="time-panel-progress" style="left: 0px;"></span></div>
+            <div class="time-panel-progress-text">
+            </div>
+        </div>
+        <div class="time-panel-btn"></div>
+    </div>
+</div>
+<script>
+    loadJS('/leaflet-0.6.4.js')
+    loadJS('/leaflet-plugin/heatmap-offline.js')
+    loadJS('/leaflet-plugin/leaflet-heat-offline.js')
+    loadJS('/dshow/r/dashboard/offline-heatmap.js')
+</script>
