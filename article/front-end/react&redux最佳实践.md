@@ -32,3 +32,15 @@
 7. 单向数据流的优势
 
 保持逻辑简单清晰，出现了bug容易定位。
+
+8. 使用redux-saga时处理action有两种方式
+
+* saga处理action，执行某个动作
+    
+* reducer处理action，进行数据转换
+
+9.痛恨重复性工作
+
+* 处理loading的逻辑提取冲去，简单化
+    
+* 创建action的逻辑提取重复，简单化
