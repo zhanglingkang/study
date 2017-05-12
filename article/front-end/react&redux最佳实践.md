@@ -39,8 +39,45 @@
     
 * reducer处理action，进行数据转换
 
-9.痛恨重复性工作
+9. 痛恨重复性工作
 
-* 处理loading的逻辑提取冲去，简单化
+* 处理loading的逻辑提取出去去，简单化
     
 * 创建action的逻辑提取重复，简单化
+
+10. 在使用react + redux + redux-saga的方案中，完成一个用户模块管理的功能，需要做如下工作
+
+* actions/user.js
+* reducers/user.js（依赖actions） 
+* reduces/index.js 中进行导出
+```javascript
+const rootReducer = {
+    category,
+    system,
+    article,
+    template,
+    user,
+    demoCenter,
+    history,
+    tag,
+    faq,
+    component,
+    //config
+};
+```
+* sagas/user.js（依赖actions） 
+* sagas/index.js 中进行导出
+
+```javascript
+export default function* root() {
+    yield [
+        componentSaga(),
+        articleSaga(),
+        //configSaga(),
+        watchCancelAction()
+    ]
+}
+```
+如果将action、reducer、saga进行整合，则只需要
+* model/user.js
+* model/index.js 中导出 model/user.js即可。
