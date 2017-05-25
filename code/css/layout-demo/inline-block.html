@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .parent {
+            font-size: 0;
+            height: 400px;
+        }
+
+        .column {
+            /*width: calc(100% / 3);*/
+            display: inline-block;
+            background-color: #00bea4;
+            height: 100%;
+        }
+
+        .column:first-child {
+            /*height: 300px;*/
+            width: 200px;
+        }
+
+        .column:nth-child(2) {
+            /*height: 300px;*/
+            width: calc(100% - 400px);
+            background-color: #2b5797;
+        }
+
+        .column:nth-child(3) {
+            /*height: 300px;*/
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+</body>
+</html>
