@@ -1,0 +1,30 @@
+.home-wrapper {
+  height: 100%;
+}
+
+.home-editor {
+  height: calc(~"100% - 80px");
+  border: 1px solid #eee;
+}
+
+.rdw-editor-toolbar {
+  align-items: center;
+  padding: 6px 5px;
+  > div {
+    margin-bottom: 0;
+  }
+}
+
+.toolbar-btn {
+  border: 1px solid #F1F1F1;
+  margin: 0 4px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 1px 1px 0px #BFBDBD;
+  }
+  &.disabled {
+    color: #9e9a9a;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
